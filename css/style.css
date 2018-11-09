@@ -1,0 +1,151 @@
+/* reset basico */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* fonte */
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+html{
+  height: 100%;
+  background:
+		linear-gradient(rgba(162, 255, 190, 0.2), rgba(89, 135, 182, 0.2)),
+		url('back.png');
+
+}
+body{
+  font-family: Montserrat, arial, verdana;
+  color: #2C3E50;
+  font-size: 13px;
+}
+
+/* formulario */
+#msform{
+  width: auto;
+  margin-top: 50px;
+  text-align: center;
+  position: relative;
+}
+#msform fieldset{
+  background: white;
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 0 0 15px 1px rgba(0,0,0,0.4); /* cria uma sombra no card */
+  padding: 20px 30px;
+  box-sizing: border-box; /* medir pelas bordas */
+  width: 100%;
+/* empilhar cartoes em sequencia */
+  position: absolute;
+}
+
+/* esconde os cartoes */
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+
+/* INPUTS
+#msform input, #msform textarea{
+  padding: 15px;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 13px;
+}*/
+
+/* botoes */
+#msform .action-button{
+  width: 100px;
+  background: #27AE60;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus{
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+
+.borda{
+  margin: 25px 0 25px 0;
+  border: 1px solid #e5e5e5;
+}
+/* titulos dos cartoes */
+.fs-title{
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #2C3E50;
+  margin-bottom: 8px;
+
+}
+.fs-subtitle{
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 12px;
+}
+.fs-title2{
+  font-size: 14px;
+
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* barra de progresso */
+#progressbar{
+  margin-bottom: 30px;
+  overflow: hidden;
+  /* contator de etapas */
+  counter-reset: step;
+}
+
+#progressbar li{
+  list-style-type: none;
+  /*display: inline;*/
+  color: white;
+  text-transform: uppercase;
+  font-size: 10px;
+  width: 20%;
+  float: left;
+  position: relative;
+}
+#progressbar li:before{
+  content: counter(step); /* preenche o campo */
+  counter-increment: step;
+  width: 25px;
+  line-height: 25px;
+  display: block;
+  font-size: 10px;
+  color: #333;
+  background: white;
+  border-radius: 3px;
+  margin: 0 auto 5px auto;
+}
+
+/* conexao da barra de progresso */
+#progressbar li:after{
+  content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1; /* coloca para tras dos numeros*/
+}
+#progressbar li:first-child:after{
+  content: none;
+}
+
+/* marcacao da etapa */
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #27AE60;
+	color: white;
+}
